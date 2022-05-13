@@ -1,15 +1,15 @@
 import { FC, Suspense } from 'react';
 import { Box, Container, Heading, Stack } from '@chakra-ui/react';
 import { colors } from 'src/styles/Tokens';
-import { PromotionSection } from 'src/components/organisms/PromotionSection';
-import { CampaignSection } from 'src/components/organisms/CampaignSection';
-import { InformationSection } from 'src/components/organisms/InformationSection';
-import { CategorySection } from 'src/components/organisms/CategorySection';
+import { PromotionContent } from 'src/components/organisms/PromotionContent';
+import { CampaignContent } from 'src/components/organisms/CampaignContent';
+import { InformationContent } from 'src/components/organisms/InformationContent';
+import { CategoryContent } from 'src/components/organisms/CategoryContent';
 
 export const TopPage: FC = () => (
   <Box bg={colors.YumeWhiteGreen}>
     <Suspense fallback={<p>Loading...</p>}>
-      <PromotionSection />
+      <PromotionContent />
     </Suspense>
 
     <Container maxW="1024px" paddingY={20}>
@@ -17,19 +17,19 @@ export const TopPage: FC = () => (
         <Stack spacing={4}>
           <Heading>キャンペーン</Heading>
           <Suspense fallback={<p>Loading...</p>}>
-            <CampaignSection />
+            <CampaignContent />
           </Suspense>
         </Stack>
         <Stack spacing={4}>
           <Heading>お知らせ</Heading>
           <Suspense fallback={<p>Loading...</p>}>
-            <InformationSection />
+            <InformationContent />
           </Suspense>
         </Stack>
         <Stack spacing={4}>
           <Heading>カテゴリ</Heading>
           <Suspense fallback={<p>Loading...</p>}>
-            <CategorySection />
+            <CategoryContent />
           </Suspense>
         </Stack>
       </Stack>

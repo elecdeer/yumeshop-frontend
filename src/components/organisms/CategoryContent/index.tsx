@@ -3,7 +3,7 @@ import { colors } from 'src/styles/Tokens';
 import { PicAndTextCardList } from 'src/components/molecules/PicAndTextCardList';
 import {FC} from "react";
 
-export const CategorySection: FC = () => {
+export const CategoryContent: FC = () => {
   const categoryData = useCategoryCardsQuery('/products');
   return (
     <PicAndTextCardList
