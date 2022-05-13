@@ -1,16 +1,14 @@
 import { FC, Suspense } from 'react';
 import { Box, Container, Heading, Stack } from '@chakra-ui/react';
-import { usePromotionCardsQuery } from 'src/libs/hooks/usePromotionCardsQuery';
-import { ImageCarousel } from 'src/components/molecules/ImageCarousel';
 import { useCampaignCardsQuery } from 'src/libs/hooks/useCampaignCardsQuery';
 import { useInformationCardsQuery } from 'src/libs/hooks/useInformationCardsQuery';
 import { useCategoryCardsQuery } from 'src/libs/hooks/useCategoryCardsQuery';
 import { PicAndTextCardList } from 'src/components/molecules/PicAndTextCardList';
 import { NewsCardList } from 'src/components/molecules/NewsCardList';
 import { colors } from 'src/styles/Tokens';
+import { PromotionSection } from 'src/components/organisms/PromotionSection';
 
 export const TopPage: FC = () => {
-  const promotionData = usePromotionCardsQuery();
   const campaignData = useCampaignCardsQuery('/products');
   const informationData = useInformationCardsQuery();
   const categoryData = useCategoryCardsQuery('/products');
@@ -18,8 +16,9 @@ export const TopPage: FC = () => {
   return (
     <Box bg={colors.YumeWhiteGreen}>
       <Suspense fallback={<p>Loading...</p>}>
-        <ImageCarousel items={promotionData} />
+        <PromotionSection />
       </Suspense>
+
       <Container maxW="1024px" paddingY={20}>
         <Stack spacing={20}>
           <Stack spacing={4}>
